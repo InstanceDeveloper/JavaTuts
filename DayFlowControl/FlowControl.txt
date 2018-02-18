@@ -1,0 +1,35 @@
+Flow Control Statments:
+	1. Conditional Statements - 
+		Condition is true respective block is executed and Condition is false respective block is executed
+
+		Types of Conditional Statements: 
+			-if
+			-if else
+			-if else if
+			-nested if
+			-switch
+			-nested switch
+
+	2. Iteration Statements - 
+		Iteration Statements help in repeating the respective block
+			-for loop
+			-while loop
+			-do-while
+
+	3. Transfer Statements
+		Trasnfer the control from one statement to another statments
+			-break
+			-continue
+			-goto
+			-return - method returning certain value
+			-try - try exectption catch
+
+
+Wraapper-classes: 
+	in development, we come across situations where we need to use objects instead of primitive data types. In order to achieve this, Java provides wrapper classes.
+
+	All the wrapper classes (Integer, Long, Byte, Double, Float, Short) are subclasses of the abstract class Number.
+
+	Number Classes the object of the wrapper class contains or wraps its respective primitive data type. Converting primitive data types into object is called boxing, and this is taken care by the compiler. Therefore, while using a wrapper class you just need to pass the value of the primitive data type to the constructor of the Wrapper class.
+
+	And the Wrapper object will be converted back to a primitive data type, and this process is called unboxing. The Number class is part of the java.lang package.

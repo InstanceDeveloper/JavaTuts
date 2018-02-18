@@ -1,0 +1,28 @@
+int a = 10; 10 is a int-type || 4 bytes || -128 to 127
+float f = 10.5; 10.5 is a float type || 4 bytes
+char ch = 'a'; 'a' is a char type || 2 bytes
+
+Data type:
+	It represents the type of variable
+	Decides memory size of the variable
+	Decides range value
+
+
+Types of Data Types:
+	Primitive:
+
+		To represent numeric -  byte - 1 byte
+								Short - 2bytes
+								int - 4 bytes
+								long - 8 bytes
+
+		To represent decimals - float - 4 bytes
+								double - 8 bytes
+
+		To represent single character - Char - 2 bytes
+
+		To represent true/false - boolean - No size
+
+	Reference:
+
+	

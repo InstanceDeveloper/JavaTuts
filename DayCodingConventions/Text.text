@@ -1,0 +1,46 @@
+
+/* Java Coding Conventions - Mandatory for predefined library and optional for user defined library. 
+
+Why to follow ? Because java is case sensitive lanugage
+
+Coding convention for class:
+-  class name starts with capital letter and inner word also
+	follows same the same conventions (means capital for inner word too) - known as camelcasing
+
+	ex: String, StringBuffer, InputStream
+
+-  Interface is also same as class name
+
+	ex:  Serializable, RandomAccess
+
+- Methods - is known as functions in C
+	
+		Method name starts with lower case and innerword starts with Capital letter and follows parenthesis
+		known as mixesMethod conventions
+
+	ex:  charAt(), toUpperCase()
+
+- variables -  follows same rule as Methods
+	
+	ex: out - is a variable in Sop, pageContext
+
+class and interface takes nouns
+methods and variables takes verbs
+
+- packages -  java has predefined support comes from packages
+	
+	- every character should be lower case
+
+	ex:  java.lang , java.util, java.awl
+
+
+- constants -  
+	
+	- every character should be CAPITAL letter
+
+	ex: MAX-PROPING, MIN-PROPING
+
+- constructor - 
+	
+	Constructor name should be same as class. 
+

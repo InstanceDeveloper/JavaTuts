@@ -1,0 +1,98 @@
+- Static block are executed during class file loading to JVM.
+- Static blocks are executed before instance blocks.
+- In Inheritance parent class static blocks are executed then child class static blocks are executed 
+
+Ex-1:
+
+Case1:
+
+class Parent {
+	{
+	System.out.println("Parent Class Instance Block")
+	}
+
+	Parent() {
+	System.out.println("Parent Class 0 arg Constructor")
+	}
+
+	Static {
+	System.out.println("Parent Class Static Block")
+	}
+}
+
+class Child extends Parent {
+	{
+	System.out.println("Child Class Instance Block")
+	}
+
+	Child() {
+	System.out.println("Child Class 0 arg Constructor")
+	}
+
+	{
+	System.out.println("Child Class Static Block")
+	}
+
+	public static void main(String args[]) {
+		new Child();
+	}
+}
+
+O/P: 
+
+Parent Class Static Block
+Child Class Static Block
+Parent Class Instance Block
+Parent Class 0 arg Constructor
+Child Class Instance Block
+Child Class 0 arg Constructor
+
+
+Case2:
+Case1:
+
+class Parent {
+	{
+	System.out.println("Parent Class Instance Block")
+	}
+
+	Parent() {
+	System.out.println("Parent Class 0 arg Constructor")
+	}
+
+	Static {
+	System.out.println("Parent Class Static Block")
+	}
+}
+
+class Child extends Parent {
+	{
+	System.out.println("Child Class Instance Block")
+	}
+
+	Child() {
+	System.out.println("Child Class 0 arg Constructor")
+	}
+
+	{
+	System.out.println("Child Class Static Block")
+	}
+
+	public static void main(String args[]) {
+		new Child();
+		new Child1();
+	}
+}
+
+O/P: 
+
+Parent Class Static Block
+Child Class Static Block
+Parent Class Instance Block
+Parent Class 0 arg Constructor
+Child Class Instance Block
+Child Class 0 arg Constructor
+Parent Class Instance Block
+Parent Class 0 arg Constructor
+Child Class Instance Block
+Child Class 0 arg Constructor
