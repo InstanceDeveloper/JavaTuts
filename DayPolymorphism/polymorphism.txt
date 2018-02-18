@@ -1,0 +1,607 @@
+-Having multiple forms (behaviors) is called polymorphism or ability to appear in more than one form is called polymorphism.
+
+- Compile Time Polymorphism / Static Binding / Early Binding
+	-Method Overloading is the way to acheive Compile Time Polymorphism
+
+
+- Run Time Polymorphism / Dynamic Binding/ Late Binding
+	-Method Over Riding is the way to acheive Run Time Polymorphism
+
+
+- Overloading - 
+	- Overloading can be achieved by a single class or same class only ( same class methods/constructors/operators acheives overloading )
+	- There are three types of Over loading in Java
+	- Method Overloading - The binding or mapping done during 
+							compile time 
+	- Constructor Overloading 
+	- Operating Overloading
+
+
+	-METHOD OVERLOADING
+
+		If a class contains more than one method with same name but with differnet number of arguments or different data types are called overloaded methods. 
+
+		If a class contains different method signatures but same names is called method overloading
+
+		class checking_method_overloading {
+		//one kind of method overloading	
+			void inst_m1 (int a) {}
+			void inst_m1 (int a, int b) {}
+
+			//or 
+		//another kind of method overloading
+			void inst_m1(int a) {}
+			void inst_m1(String s) {}
+		}
+
+	Ex: 
+
+	class checking_method_overloading {
+
+	//one form of method overloadng 
+	void inst_method1(int a) {
+		System.out.println("This is instance method with one param");
+	}
+
+	void inst_method1(int a, int b) {
+		System.out.println("This is instance method with two parameters");
+	}
+
+	//another form of method overloading
+	void inst_method2(int a) {
+		System.out.println("This is instance method with Integer parameter");
+	}
+
+	void inst_method2(String S) {
+		System.out.println("THis is instance method with String Parameter");
+	}
+
+	public static void main(String[] args) {
+		new checking_method_overloading().inst_method1(10);
+		new checking_method_overloading().inst_method1(10,20);
+
+		new checking_method_overloading().inst_method2(10);
+		new checking_method_overloading().inst_method2("param");
+	}
+	}
+
+
+
+	- Constructor Overloading -  
+		Same Cosntructor name with different number of arguments or Same constructor name with same number of arguments different data types.
+
+		class Checking_constructor_overloading {
+		//one form of method overloading	
+			 Checking_constructor_overloading(int a) {}
+			 Checking_constructor_overloading(int a, int b) {}
+
+			//or 
+		//another form of method overloading
+			 Checking_constructor_overloading(int a) {}
+			 Checking_constructor_overloading(String s) {}
+		}
+
+
+		Ex:
+
+		class checking_const_ovrldng {
+	//one form of constructor overloading
+
+	checking_const_ovrldng(int a) {
+		System.out.println("This is constructor with one argument");
+	}
+
+	checking_const_ovrldng(int a, int b) {
+		System.out.println("This is constructor with two arguments");
+	}
+
+	//Another form of constructor overloading
+
+	checking_const_ovrldng(int b) {
+		System.out.println("This is constructor with Integer argument");
+	}
+
+	checking_const_ovrldng(String s) {
+		System.out.println("This is constructor with String argument");
+	}
+
+	public static void main(String[] args) {
+		new checking_const_ovrldng(10);
+		new checking_const_ovrldng(10,20);
+
+		new checking_const_ovrldng(10);
+		new checking_const_ovrldng("String param");
+		}
+		}
+
+
+	Operator Overloading:
+
+		Java Doesn't support operator overloading unlike C++ (C++ supports operator overloading)
+
+		-But java do have an implicit operator overloading which is "+" (addition operator)
+
+		- + is a overloaded operator because it changes it form of operation with differnt data types for strings it concatinates and for integers it goes with addition. 
+
+
+
+	-OVER RIDING:
+		- Over riding is only acheieved through inheritance  
+			(with a min of two classes)
+		- Method/Constructor implementations should be declared 
+			first in PARENT class to access it in CHILD class. 
+		- The method which gets over rided is called OVERRIDDEN METHOD 
+			The parent class method/cosntructor is called OVER 
+			RIDEN method.
+		- The method which over rides is called OVERRIDING METHOD 
+			The child class method/constructor is called OVER 
+			RIDING method.
+
+	- METHOD OVER RIDING
+		- When a method of same signature exists in Parent and Child class OVER RIDING is done.
+		- The Parent class method is called OVERRIDEN method.
+		- The Child class method is called OVERRIDING method.
+
+	8 Rules to OVERRIDE METHOD:
+		- The Parent class method signature and child class 		method signature should be same. 
+			- class parent {
+				void inst_m1() {}
+				}
+			  class child extends parent {
+			  	void inst_m1() {}
+			  	public static void main(s a[]) {
+			  		new child().inst_m1();
+			  		//child inst_m1.
+			  	}
+			  }
+		
+		- The Parent(overridden) and Child(overiding) class method return type must be same at primitive level
+		-class parent {
+			void inst_m1() {}
+			}
+	  	 class child extends parent {
+			int inst_m1() {}
+			psvm(s a[]) {
+			new child().inst_m1();
+			//compilation error can't override
+				}
+			}
+
+		-class parent {
+			float inst_m1() {}
+			}
+	  	 class child extends parent {
+			int inst_m1() {}
+			psvm(s a[]) {
+			new child().inst_m1();
+			//compilation error cant override
+				}
+			}
+
+		-class parent {
+			int inst_m1() {}
+			}
+	  	 class child extends parent {
+			int inst_m1() {}
+			psvm(s a[]) {
+			new child().inst_m1();
+			//child inst_m1
+				}
+			}
+
+	- It is possible to override the method with different 
+	  return type at class level.
+	  This is co-variant return type method overriding. 
+	  In this method of overriding, the Parent class with parent return type method will be overridden with Child class will Child return type method.
+
+	  case1: 
+
+	  	-class Animal {
+    		Animal inst_m1() {
+      			System.out.println("This is Parent Class Return Type Instance Method");
+       			
+       			return new Animal();
+    			}
+			}
+
+		public class Dog extends Animal {
+    		Dog inst_m1() {
+        	System.out.println("This is Child Class Return Type Instance Method");
+        	return new Dog();
+    		}
+    
+    		public static void main(String args[]) {
+        	new Dog().inst_m1();
+    		}
+		}
+	O/P: This is child class return type 
+		 instance method. 	
+
+	  
+	  case2:
+
+		-class Mammal {}
+		-class Sloth extends Mammal {}
+
+		-class Animal {
+			Mammal inst_m1() {
+				System.out.println("This is Parent Class Return Type Instance Method");
+       			
+       			return new Mammal();
+			}
+		  }
+
+		  public class Dog extends Animal {
+		  	Sloth inst_m1() {
+		  	System.out.println("This is child 
+		  	Class Return Type Instance Method");
+       			
+       			return new Sloth();
+		  	}
+
+		  	public static void main(String args[]) {
+        	new Dog().inst_m1();
+    		}
+
+		  }
+
+		O/P: This is child Class Return Type Instance Method
+
+		**Note:  In case1 & case2 if you see it doesn't matter whether you mention class type method in same inherited classes or different inherited classes. But the overridden method should be always in parent return type and overriding method should be always in child return type.
+
+	- If the overridden class (parent class)
+	  contains final keyword method it can't 
+	  be overrided.
+
+	  ex: 
+	  class Parent {
+	  	final void inst_m1() {
+	  	SOP("Parent Instance method");
+	  	}
+	  }
+
+	  class Child extends Parent {
+	  	void inst_m1() {
+	  		SOP("Child instance method");
+	  	}
+	  	psvm(S a[]) {
+	  		new Child().inst_m1();
+	  	}
+	  }
+
+	  O/P: compilation error because final 
+	  method can't be overrided.
+
+	  class with final keyword - can't be inherited
+	  method with final keyword- can't be overrided
+	  variables with final keyword- can't be modified
+
+***** In entire java local variables can be declared with only one modifier called as final. *****
+
+	if only a Class is declared with final keyword
+	  	-method - by default it is final (not
+	  	modifiable or overridable)
+	  	-variable - Can be modified. 
+
+	ex: final class test {
+		int a = 100;
+		void inst_m1() {
+			a = 10+a;
+			SOP(a);
+		}
+		psvm(s a[]) {
+			new test().inst_m1();
+		}
+		}
+
+
+	- Static Method Hiding (Static method overriding)
+		Usually overriding is not possible in static methods Parent class to child class, but instead of overriding
+		we do hide the method of Parent class with Child class by using a technique called Parent Class Reference Variable and Child Class Object. 
+
+	---** Diff Reference variables with Diff Objects assignment **------
+		class Parent {}
+
+		class Child extends Parent {}
+
+		Parent P = new Parent(); // valid 
+		Child C = new Child(); // valid
+		Parent P = new Child(); // valid
+		Child C = new Parent(); // perfectly 
+									invalid
+
+	Ex:
+
+	class Parent{
+    void inst_m1() { //overrided method
+        System.out.println("This is Parent class Overriden instance method");
+    	}
+	}
+
+	public class Child extends Parent {
+    	void inst_m1() { //overriding method
+        	System.out.println("This is Child class Overriding instance method");
+    		}
+    	
+    	void inst_m2() { //direct method
+        	System.out.println("This is Child class Direct instance method");
+    		}
+    
+    public static void main(String args[]) {
+        Parent P = new Child();
+        
+        /*In this reference variable assingment we can only overrided methods not direct methods*/
+        
+        P.inst_m1();
+        /*During Compile Time : It will look at this method in Parent Class
+        During Execution Time: It will look at this method in in Child Class */
+
+        P.inst_m2(); 
+        /*During Compile Time : It will look at this method in Parent Class
+        During Execution Time: It will look at this method in Child Class leads to compile time error */
+
+        /*This will lead compile time error because in parent class there is no inst_m2() in order to assess child class methods we need follow the below proceedure */
+        
+        Child C = (Child) P; 
+
+        /* Type casting P reference variable to Child class type and assigning it to C reference variable */
+
+        C.inst_m2();
+
+    		}
+		}
+
+	O/P: This is Child class Direct instance method
+	//The above scenario will only work for instance method
+
+*****
+	Class part      Object Part 
+	Class C     =   new Class();
+Before new keyword  from New keyword
+is class part or    is object part or 
+static part         instance part. 
+
+
+		
+	- class Parent {
+		static void stat_m1() {
+		System.out.println("This is Parent class static method");
+			}
+		}
+
+	 class Child extends Parent {
+	 	static void stat_m1() {
+		System.out.println("This is Child class static method");
+			}
+		psvm(s a[]) {
+			Parent P = new Child();
+			P.stat_m1();
+
+			/*Because the parent compiler looks for only parent class so loads parent class static variable only.
+		}
+	 	}
+
+	 O/P: This is Parent class static method
+
+----- So Thats why static method overriding is not possible,
+	because methods are bound to class decleartion not object creation, in order to overtake this we can do metho hiding.  
+
+
+	
+	-
+	Private: 
+		-It is applicable for variables and methods
+		-It makes variables and methods accesssible only with
+		 in class
+		-It is not possible for child to access private parent
+		 class
+		-The most restricted modifier in java is private.
+
+
+		- Any method with private keyword in Parent class or Child class can't be overridden. 
+
+		Case1: 
+		class Test_Parent {
+			 private void inst_m1() {
+				System.out.println("This is Instance method of parent class");
+				}
+			}
+
+		class Test_child extends Test_Parent {
+			 void inst_m1() {
+				System.out.println("This is Instance method of child class");
+			}
+
+		public static void main(String[] args) {
+			Test_Parent TP = new Test_Parent();
+			TP.inst_m1();
+				}
+			}
+
+		O/P: error: inst_m1() has private access in Test_Parent
+		TP.inst_m1();
+
+		Case2: 
+		class Test_Parent {
+			 private void inst_m1() {
+				System.out.println("This is Instance method of parent class");
+				}
+			}
+
+		class Test_child extends Test_Parent {
+			 private void inst_m1() {
+				System.out.println("This is Instance method of child class");
+			}
+
+		public static void main(String[] args) {
+			Test_Parent TP = new Test_Parent();
+			TP.inst_m1();
+				}
+			}
+
+		O/P: error: inst_m1() has private access in Test_Parent
+		TP.inst_m1();
+
+		Case3: 
+		class Test_Parent {
+			 void inst_m1() {
+				System.out.println("This is Instance method of parent class");
+				}
+			}
+
+		class Test_child extends Test_Parent {
+			 private void inst_m1() {
+				System.out.println("This is Instance method of child class");
+			}
+
+		public static void main(String[] args) {
+			Test_Parent TP = new Test_Parent();
+			TP.inst_m1();
+				}
+			}
+
+		O/P: error: inst_m1() in Test_child cannot override inst_m1() in Test_Parent private void inst_m1() {
+	    attempting to assign weaker access privileges; was package
+
+
+	 -
+	 Modifiers -  Access permission providers
+
+	 	Public: 
+	 		-Most open public access modifiers.
+	 		-Applicable for var, methods, classes.
+	 		-Any package can be accessible
+	 	Protected:
+	 		-Applicable for var & methods
+	 		-With in package accessible and outside package 
+	 		 child classes can access
+	 	Private:
+	 		-Applicable for var & methods
+	 		-With in the class can be accessible
+	 	Default:
+	 		-Applicable for var, methods, classes.
+	 		-If no modifier is declared Default modifier is 
+	 		 allocated
+	 		-Defualt modifier accessibility is with in the 
+	 		 package
+
+
+	 
+**	 While Overriding, Java allows maintaing or increasing 
+	 the accessible permission in the child class when compared to parent class but not vice versa. 
+
+	Which means only few cases are available
+1. parnt_mthd - public & child_mthd - public  - psble overriding
+2. parnt_mthd - protected & child_mthd - public - psble
+3. parnt_mthd - private & child_mthd - public - not psble 
+4. parnt_mthd - default & child_mthd - public - psble
+5. parnt_mthd - public & child_mthd - protected - not psble
+6. parnt_mthd - protected & child_mthd - protected - psble
+7. parnt_mthd - private & child_mthd - protected - not psble
+8. parnt_mthd - deafult & child_mthd - protected - psble
+9. parnt_mthd - public & child_mthd - private - not psble
+10.parnt_mthd - protected & child_mthd - private - not psble
+11.parnt_mthd - private & child_mthd - private - not psble
+12.parnt_mthd - default & child_mthd - private - not psble
+13.parnt_mthd - public & child_mthd - deafult - not psble
+14.parnt_mthd - protected & child_mthd - deafult - psble
+15.parnt_mthd - private & child_mthd - deafult - not psble
+16.parnt_mthd - deafult & child_mthd - deafult - psble 
+
+
+
+
+String[]  anmimals = new String[5];
+animals[0] = "Lion";
+animals[1] = "Tiger";
+animals[2] = "Ant";
+animals[3] = "Elephant";
+animals[4] = "goat";
+
+
+int maxLength, prsntLength;
+
+for(int i=0;i<animals.length;i++) {
+	maxLength = animals[0].length;
+	if(animals[0] > animals[i]) {
+	maxLength = animals[i].length;
+	}	
+}
+
+for(int i=0;i<maxLengtj;i++) {
+	for(int j=0;j<= maxLength-presentLength;j++) {
+	Syso(" ");
+	}
+
+	for(int j=0;j<=presnetLength;j++) {
+	Syso("+");
+	}
+}
+
+*****
+*****
+*****
+** **
+ * *
+   *
+   *
+   *
+
+
+   *
+   *
+   *
+ * *
+** **
+*****
+*****
+*****
+
+
+*
+**
+***
+****
+*****
+
+
+    *
+   **
+  ***
+ ****
+*****
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

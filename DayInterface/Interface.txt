@@ -1,0 +1,368 @@
+Java Group of Packages and Classes
+	-Packages
+	-Classes - Interfaces and Methods
+
+
+Interface 
+	- Syntax: interface Interface_Name
+	- Allows to declare onyl Abstract Methods
+	- Declaring functionalities of the project using Interface
+	- SRS Document- Service Requirement Software Document
+	- All the method decleratinos are public and abstract
+	- By Default interfaces are abstract
+	- Object creation is not allowed to Interface in entire Java
+	- Interface contains abstract methods and implementations are
+	  done in implementation class
+	- Interface and Class should not be same
+	- Interface can be nesteds
+	- The whole concecpt works on logic of Overriding.
+
+	- Interface variables are by default public static final
+	  which means they can't be modified
+
+Ex:
+interface Interface_demo {
+	void m1();
+	void m2();
+	void m3();
+}
+class Implementation_demo implements Interface_demo {
+
+	public void m1() {
+		System.out.println("This is main method 1");
+	} 
+
+	public void m2() {
+		System.out.println("This is main method 2");
+	} 
+
+	public void m3() {
+		System.out.println("This is main method 3");
+	} 
+
+
+	public static void main(String[] args) {
+		Implementation_demo id = new Implementation_demo();
+		id.m1();
+		id.m2();
+		id.m3();
+//in hadoop level
+		Interface_demo iid = new Implementation_demo();
+		iid.m1();
+		iid.m2();
+		iid.m3();
+	}
+}
+
+	- Interaces allow inheritance but unlike classes, one 	
+	  interface can extend to multiple interfaces. 
+
+	  class extends class
+	  interface extends interface
+	  class implements interface
+
+	  class A extends B ---- valid
+	  class A extends B,C -- invalid
+	  class A implements Interface_1 ----- valid
+	  class A implements interface_1, Interface_2 ---- valid
+	  class A extends A ----- invalid (cyclic inheritance)
+
+
+	  interface Interface_1 extends Interface_2 ----- valid
+	  interface Interface_1 extends Intrfce_2, Intrfce_3 - valid
+	  interface Interface_1 extedns class A ----- invalid
+	  interface Interface_1 extends Interface_1 - invalid
+
+	-class with extends and implements keyword 
+		A class can contain extends and implements keyword both
+
+	class A extends B implements Interface_1,Interface_2 -- valid
+	class A implements Interface_1,Interface_2 extends B -- invld
+
+Adapater class
+	A class with method implementation but no logics were defined helps in keeping the interface under mute.
+
+Marker Class:
+	A class with zero methods or no methods is called Marker Class.
+
+Srikanths-MacBook-Air:day_interface chintusrikanth$ javap java.io.Serializable
+Compiled from "Serializable.java"
+public interface java.io.Serializable {
+}
+Srikanths-MacBook-Air:day_interface chintusrikanth$ javap java.util.RandomAccess 
+Compiled from "RandomAccess.java"
+public interface java.util.RandomAccess {
+}
+Srikanths-MacBook-Air:day_interface chintusrikanth$ javap java.lang.Cloneable
+Compiled from "Cloneable.java"
+public interface java.lang.Cloneable {
+}
+
+C - Contains all functionalities in header files
+C++ - Contains functionalities in header files
+Java - contains its functionalities in Packages, packages
+		can be assessed by class and interfaces,
+
+
+-Licensed Software - Oracle,Microsoft
+-Open Source Software
+
+Java - JDK - Java Development Kit -Java Source Code.
+	 - JRE - Java Runtime Environment 
+
+
+Package - It is nothig but folder
+
+Java <--- Packages <--- Class/Interfaces <--- Methods
+14	 <--- 150      <--- 7000+ 			 <---  7 Lakhs
+
+In 1.8 version 14 predefined package and the additional package with 1.8 is known as times. 
+Upto 1.7 there are 13 pre-defined packages.
+
+
+predefined packages - predefined class and interfaces
+userdefined packages- userdefined class and interfaces
+
+packages coding convention - 
+	- Everything should be small letters
+	- packages com.packagename.projectname.modulename
+
+	ex:
+	- company name - tcs
+	- package com.tcs
+
+	- continued by project name
+	- package com.tcs.bank
+
+	- continued by module name
+	- package com.tcs.bank.deposit
+
+To Compile 
+	javac -d . Test.java
+To Execute -  we need fully qualified name to execute
+javac com.dss.java.corejava.Checking_package
+
+Ex:
+	package com.dss.java.corejava;
+	class Checking_package {
+		public static void main(String[] args) {
+			System.out.println("Package first example");
+		}
+	}
+	class A {
+
+	}
+	class B {
+
+	}
+	interface Interface_Test {
+
+
+To import packages - 
+	-Importing all classes.
+		import java.lang.*; (package.name.*  star gives all classes )
+
+	-Import the required classes.
+		import java.lang.string; 
+		(package.name.required_class)
+		import java.lang.system;
+		(package.name.required_class)
+
+Ex: 
+
+package com.dss.states.info;
+
+public class states_info {
+	void ts() { System.out.println("Telangana State");	}
+	void ap() { System.out.println("Andhra State");	}
+	void others() { System.out.println("Others State");	}
+}
+
+
+package com.tss.states.display;
+import com.dss.states.info;
+//import com.dss.states.*;
+class display {
+	public static void main(String[] args) {
+		states_info si = new states_info();
+		si.ts();
+		si.ap();
+		si.others();
+	}
+}
+
+
+Modifiers:
+
+Default:
+	-This is the default class in java
+	-Can be applicable to Class, Methods and Variables 
+	 (only for instance and static but not for local var)
+	-Default access also known as package level access
+
+Ex:
+	class Checking_Default {
+	/*no need to mention modifier keyword because it is default in java, can be accessed all over the packge*/
+		void m1() {
+		/*Default method so anyone can access with class access modifiers */
+		System.out.println("This is default");
+		}
+		void m2() {
+		/*Default method so anyone can access with class access modifiers */
+		System.out.println("This is also default");
+		}
+		public static void main(String[] args) {
+			Checking_Default CD = new Checking_defualt();
+			CD.m1();
+			CD.m2();
+		}
+	}
+
+
+Public:
+	-Public Modifier can be applicable Classes, Methods & 
+	 Variables (only static and instance, not local)
+	-Class with Public Modifier can be accessed to anywhere
+		(both in and outside of the package)
+	-Variables with Public Modifier can be accessed to 
+	 anywhere depending upon the class access.
+
+Ex: 
+	public class Checking_public {
+			/*This is public class can be accessed to anywhere*/
+		public int a = 10;
+			/*This is public member can be accessed to anywhere because class is public*/
+		public void m1() {
+			/*This is public method can be accessed to anywhere because class is public*/
+			a = a+10;
+			/*We can't apply public here because its local variable*/
+			System.out.println("This is public method");
+		}
+		public static void main(String[] args) {
+			Checking_public cp = new Checking_public();
+			cp.m1();
+			System.out.println(cp.a);
+		}
+	}	 
+
+
+Private
+	-Private is the strict modifier in java
+	-Can be applicable only to methods and variables
+	-Member and method declared as private can be accessed 
+	 only in current class only.
+	-Inheritance is not allowed with private class.
+
+Ex: 
+	class Parent_private {
+		private int a = 10;
+		private void parent_m1() {
+			System.out.println("This is parent method");
+		}
+	}
+	class Checking_private extends Parent_private{
+		private void m1() {
+			System.out.println("Method as private");
+		}
+		public static void main(String[] args) {
+			Checking_Private CP = new Checking_Private();
+			CP.m1();
+			System.out.println(CP.a);
+			CP.parent_m1();
+		}
+	}	
+
+Protected
+	-Protected is applicable to methods and variables
+	-Protected members and methods can only be accessed 
+	 all over the class and out side the package only in child classes.
+	-From out side package only child references can be 
+	 used, if we use parent reference we get compile time
+	 error.
+	-Protected members can be accessible only from instance
+	 area directly, from static area we can't access isntance members directly otherwise we get compile time error. 
+
+
+Types of import:
+	static Import
+		By using static import it is easy to access static variables and methods directly. 
+
+	Without static Import
+		Itis regular way of calling static members of class.
+
+Ex: Without Static
+
+-import java.lang.*;
+class Test {
+	public static void main(String[] args) {
+		System.out.println("Hello World");
+	}
+}
+
+Ex: With Static Import
+
+- import static java.lang.System.*;
+class Checking_withstatic {
+	public static void main(String[] args) {
+		out.println("static import");
+	}
+}
+
+Ex: Without Static
+
+-package com.dss;
+public class Checking_withoutstatic {
+	public static int a =100;
+	public static void m1() {
+	System.out.println("M1 method");
+	}
+}
+
+
+Ex: With Static
+
+- package com.tcs;
+import static com.dss.Checking_withoutstatic.*;
+
+class Checking_withstatic_import {
+	public static void main(String[] args) {
+		System.out.println(a);
+		m1();
+	}
+}
+
+Source file Decleration Rules:
+-The source file should contain these below statements
+-1 statement - Package Decleration  - optional - 
+	at most one package (0 or 1)
+-2 statement - Import Decleration - optional - 
+	any number of imports
+-3 statement - Class Decleration - optional - 
+	any number of classes
+-3 statement - interface Decleration - optional - 
+	any number of interfaces
+-3 satement - Comments decleration - optional
+	- any number of comments.
+
+a. The package must be the first statement of the source
+   file and it is possible to declare at most one packge within the source file
+b. The import session must be in between the package and
+   class statement. It is possible to declare any number of
+   import statments within the source file.
+c. The class session is must after package and import 
+   statement and it is possible to declare any number of class within the source file
+   		- It is possible to declare at most 1 public class
+   		- It is possible to declare any number of non-public classes
+d. The package and import statements are applicable for all
+   the classes present in the source file.
+e. It is possible to declare comments at beginning and
+   ending of any line of decleration it is possible to declare any number of comments within the source file
+
+
+
+Preperation of Userdefined API Document:
+	- API Document nothing but user guide
+		- Whenever we are buying any product the manufacturing peopel provides a document called user guide. To use the product properly we need to go through user guide.
+
+	- To Create API Document of a source file it should contain all members (classes, modifier, variables...) with modifiers.
+

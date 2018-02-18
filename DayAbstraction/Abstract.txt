@@ -1,0 +1,224 @@
+Abstract Methods:
+	-Abstraction is the process of highlighting set of services 
+	 and the process of hiding implementations. 
+
+	 Ex: Bank ATM -  
+
+	-We Acheive Abstraction using Abstract classes and Interfaces
+	-Abstract class means classes which contains Abstract 
+	 Methods.
+
+	 Types of Methods:
+	 	-Normal Methods
+	 		-Normal Method contains method decleration and 
+	 		 busiess logics.
+	 		-Normal method might or might not have modifier
+	 		-Normal method doesnt have semi colon
+
+	 	ex: void inst_method() { /*Business logics*/ }
+
+	 	-Abstract Methods
+			-Abstract methods contains only method declaration 
+			 and no implementation.
+			-Abstract methods ends with semi colon.
+			-Abstract should be named with abstract keyword
+			 infront of method or abstract modifier. 
+
+		ex: void inst_method();
+
+
+	Types of Classes: 
+		-Normal Class
+			-Class which contains normal methods
+			-Class may or may not have modifier
+			-Object creation done with normal class
+
+		ex: class Test {
+				void inst_method1() {}
+				void inst_method2() {}
+				void inst_method3() {}
+			} 
+
+
+		-Abstract Class
+			-class should contains may or may not contains 
+			 abstract methods
+			-class should contain abstract modifier or abstract 
+			 keyword
+			-Abstract class doesn't have object creation
+
+		ex: Abstract class Test {
+				void inst_m1() {}
+				void inst_m2() {}
+				Abstract void inst_m3();
+				}
+
+			or
+
+			Abstract class Test_without_abstractmethod {
+				void inst_m1() {}
+				void inst_m2() {}
+				void inst_m3() {}
+				} 
+
+
+
+Ex:
+
+abstract class parent_abmethods {
+	abstract void inst_m1();
+	abstract void inst_m2();
+	abstract void inst_m3();
+
+	void inst_m4() {System.out.println("Abstract Class insmthd");}
+}
+
+
+class child_methods extends parent_abmethods {
+	void inst_m1() {System.out.println("Abstract Class insmthd");}
+	void inst_m2() {System.out.println("Abstract Class insmthd");}
+	void inst_m3() {System.out.println("Abstract Class insmthd");}
+
+	public static void main(String args[]) {
+		child_methods cm = new child_methods();
+		cm.inst_m1();
+		cm.inst_m2();
+		cm.inst_m3();
+		cm.inst_m4();
+
+		//or
+
+		parent_abmethods pa = new child_methods();
+		pa.inst_m1();
+		pa.inst_m2();
+		pa.inst_m3();
+		pa.inst_m4();
+	}
+}
+
+
+Ex-2: 
+
+abstract class parent_abmethods_case {
+	abstract void inst_m1();
+	abstract void inst_m2();
+	abstract void inst_m3();
+}
+
+abstract class child_method_1 extends parent_abmethods_case {
+	void inst_m1() {System.out.println("Instance method 1");}
+}
+
+abstract class child_method_2 extends parent_abmethods_case {
+	void inst_m2() {System.out.println("Instance method 2");}
+}
+
+class child_method_3 extends parent_abmethods_case {
+	void inst_m3() {System.out.println("Instance method 3");}
+
+	public static void main(String args[]) {
+		child_method_3 cm3 = new child_method_3();
+		cm3.inst_m1();
+		cm3.inst_m2();
+		cm3.inst_m3();
+
+
+		parent_abmethods_case abc = new child_method_3();
+		abc.inst_m1();
+		abc.inst_m2();
+		abc.inst_m3();
+	}
+}
+
+-Inside abstract class main method is possible to declare. 
+
+	Ex: 
+
+	abstract class checking_abstract_main {
+		void inst_m1() {}
+		public static void main(String args[]) {
+			System.out.println("declareing main method inside class.")
+		}
+	}
+
+
+-Declaring constructor is possible in abstract class
+
+	 class chcking_abs_cons_parent {
+		chcking_abs_cons_parent() {
+		System.out.println("Abstrct class cons");
+		}
+		abstract void inst_m1();
+		}
+
+	 class chcking_abs_cons extends chcking_abs_cons_parent {
+		chcking_abs_cons() {
+		super();
+		System.out.println("Child class cons");
+		}
+
+		void inst_m1() { System.out.println("This is insmthd ")};
+
+		public static void main(String args[]) {
+				new chcking_abs_cons().inst_m1();
+			}
+		}
+
+	 O/P: Abstrct class cons
+		  Child class cons
+		  This is insmthd 
+
+-Declaring instance and static block is psble in abstrct
+	 class.
+
+	abstract class chcking_abs_blocks_parent {
+		chcking_abs_blocks_parent() {
+		System.out.println("Abstrct class cons");
+		}
+		{
+		System.out.println("Abstrct parent class instant block");
+		}
+		static {
+		System.out.println("Abstrct parent class static block");
+		}
+		abstract void inst_m1();
+		}
+
+	 public class chcking_abs_blocks extends chcking_abs_blocks_parent {
+		chcking_abs_blocks() {
+		System.out.println("Child class cons");
+		}
+		{
+		System.out.println("Child class instant block");
+		}
+		static {
+		System.out.println("Child class static block");
+		}
+		void inst_m1() { System.out.println("This is insmthd "); }
+
+		public static void main(String args[]) {
+				new chcking_abs_blocks().inst_m1();
+			}
+		}
+
+		O/P: 
+		Abstrct parent class static block
+		Child class static block
+		Abstrct parent class instant block
+		Abstrct class cons
+		Child class instant block
+		Child class cons
+		This is insmthd 
+
+
+
+Class 
+	class contains which have declearations and implementations 
+
+Abstract Class
+	Abstract class contains partial decleration and implementation also known as Helper classes.
+	- methods (decleration) 
+	- cons, ins, static block (implementations)
+Interface
+	Interface contains only declerations. 
+

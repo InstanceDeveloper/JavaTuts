@@ -1,0 +1,35 @@
+Encapsulation:
+	-The process of binding properties and behaviours
+	-The process of binding code as a single unit is called 
+	 Encapsulation. 
+
+	 Ex: 
+	- Class is the best example of encapsulation.
+	- Package is binding group of class required tasks as 
+	  group
+
+	-Tight Encapsulation:
+		A class with private properties is called Tightly encapsulated class.
+
+	JavaBean Class - It contains private properties and public setters and getters methods.
+
+	getters and setters are user defined classes not pre-defined classes.
+	we are defining the methods to set data and get data.
+
+
+Types of Classes we use in Whole Java:
+-Normal Class or Concrete Classes
+-Abstract Class
+-Parent Class
+-Child Class
+-Java Bean Class
+-Adaptive Class
+-Public Class
+-Default Class
+-Tightly Encapsulated Class
+-Implementation Class
+-Final Class
+-Immutable Class
+-Mutable Class
+-Strictfp Class
+-Singleton Class

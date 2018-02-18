@@ -1,0 +1,125 @@
+public static void main(String args[])
+
+public - to give the access permission to JVM main has public access specifier
+
+Static - TO over come the limitation of JVM couldn't create the object to accesss the application, we use static to make JVM to access directly
+
+void - becausse returning value it doesn't help as JVM couldn't hold the value
+
+main - method name,which is predinfely configured in JVM
+
+String args - Command line arguments,the arguments which are passed through compiler or console.
+-all the args are stored in String format. 
+-String array because it can hold any type of data.
+
+
+Modifications in main method decleration - 
+
+- Static public or public static can be taken in main method
+	-public static void main(String args[]) - possible
+	-static public void main(String args[]) - possible
+
+
+- String args[], String []args, String[] args 
+	-public static void main(String args[]) - possible
+	-public static void main(String []args) - possible
+	-public static void main(String[] args) - possible
+
+
+- (String args) can also be replaced as (String ...) this is know as variable argument decleration included in version 1.5
+	-public static void main(String...)
+
+
+- instead of args -- a,b,c.......etc
+	-public static void main(String... a)
+	-public static void main(String... Chintu)
+	-public static void main(String... Sri)
+
+
+- public, static, final, stritcfp, synchronized - 5 modifiers can be applied out of this public and static are mandatory and rest are optional
+
+Ex:
+--static public void main(String... a) - valid
+--static public final void main(String srikanth[]) - valid
+--final public strictfp void main(String... srikanth) - invalid
+--static final public strictfp int main(String... a) - invalid
+--static final public synchronized strictfp void main(String... a) - valid
+
+
+Strictfp - applicable to methods and class
+	To achieve exact results of independent floadting point values we use Strictfp.
+	Strictfp uses IEEE 754 standard to achieve this result.
+
+
+	10/6 - 1.63263 
+	20/3 - 6.66666    -------These values change from for each processor and 
+	15/7 - 2.14324           OS to OS, so inorder to maintain consistance we 
+							 use strictfp on class and methods
+
+Final - to avoid modifications or overriding in methods and class
+
+Synchronized - Only for methods.
+	 thread is a light weight process or task or operation 
+	 Synchronized helps methods can be accessed by each thread one at a point of time. 
+
+
+
+Main_Inheritance -
+	It is possible to inherit Main method from parent class to child class
+
+	ex:
+	class Parent_Main_Inheritance {
+	public static void main(String[] args) {
+		System.out.println("This is parent class main method");
+	}
+	}
+
+	class Child_Main_Inheritance extends Parent_Main_Inheritance {
+	public static void main(String[] args) {
+		System.out.println("This is parent class main method");
+	}	
+	}
+
+
+	class Child_Without_Main_Inehritance extends Parent_Main_Inheritance {
+	
+	}
+
+
+
+Main_Overloading - 
+	It is possible to overload main method but JVM always prefer method with String args,so other main method are not executed. In order to execute them we have to call them seperately in the methods with name again.
+
+
+	class Main_Overloading {
+	public static void main(String[] args) {
+		System.out.println("Main method with String args");
+	}
+	public static void main(int a) {
+		System.out.println("Main method int var");
+	}
+	public static void main(char c) {
+		System.out.println("Main method char var");
+	}
+	}
+
+	class Main_Overloading_Case1 {
+	public static void main(String[] args) {
+		main(10);
+		System.out.println("Main method with String args");
+	}
+	public static void main(int a) {
+		main('x');
+		System.out.println("Main method int var");
+	}
+	public static void main(char c) {
+		System.out.println("Main method char var");
+	}
+	}
+
+
+Main_Overriding 
+	It is not possible to override the main method as it is declared with static modifier, static methods can't be overrided but they can be hided. 
+
+
+	

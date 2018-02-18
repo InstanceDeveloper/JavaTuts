@@ -1,0 +1,85 @@
+-Instance blocks are executed during object creation. 
+-Instance blocks are executed before Constructors are executed.
+-In Inheritance parent class Instance blocks are executed then child class Instance blocks are executed
+
+
+Ex-1:
+
+case1: 
+
+class Parent {
+	{
+	System.out.println("Parent Class Instance Block")
+	}
+}
+
+class Child extends Parent {
+	{
+	System.out.println("Child Class Instance Block")
+	}
+
+	public static void main(String args[]) {
+		new Child();
+	}
+}
+
+O/P: 
+Parent Class Instance Block
+Child Class Instance Block
+
+
+class Parent {
+	{
+	System.out.println("Parent Class Instance Block")
+	}
+}
+
+class Child extends Parent {
+	{
+	System.out.println("Child Class Instance Block")
+	}
+
+	public static void main(String args[]) {
+		new Child();
+		new Child1();
+	}
+}
+
+O/P: 
+Parent Class Instance Block
+Child Class Instance Block
+Parent Class Instance Block
+Child Class Instance Block
+
+Ex-2:
+
+class Parent {
+	{
+	System.out.println("Parent Class Instance Block")
+	}
+
+	Parent() {
+	System.out.println("Parent Class 0 arg Constructor")
+	}
+}
+
+class Child extends Parent {
+	{
+	System.out.println("Child Class Instance Block")
+	}
+
+	Child() {
+	//Super();
+	System.out.println("Child Class 0 arg Constructor")
+	}
+
+	public static void main(String args[]) {
+		new Child();
+	}
+}
+
+O/P: 
+Parent Class Instance Block
+Parent Class 0 arg Constructor
+Child Class Instance Block
+Child Class 0 arg Constructor

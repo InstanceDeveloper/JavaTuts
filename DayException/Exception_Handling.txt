@@ -1,0 +1,82 @@
+- Exception
+	- Abnormal Termination is called exception.
+	- To handle the normal termination of exception, we use exception handling which helps in rest of the code run smoothly.
+	- Exception only occurs at Run Time
+
+
+	Exception keywords:
+	- Try Block
+	- Catch
+	- Finally
+	- Throw
+	- ThrowX
+
+Types of Exception:
+	Checked Exception
+		The exception which happens at compiler are called Checked Exception
+			ex: IOE Exception, SQL Exception.....
+	UnChecked Exception
+		The Exception which happens at run time (Execution point) is called UnChecked Exception.
+			ex: ArithameticException, NullPointer Exception,....
+
+Exception vs Error:
+	An Exception is an unwanted 		An Error is a trouble caused 
+	event which occurs 					by lack of System Resources 
+	during run Time 					and they are non recoverable.
+
+
+Ways of Exception Handling:
+	- Try-Catch Block
+	- Throwx keyword
+
+Try-Catch Block:
+	Try-Catch block can be divided into two parts
+	-Try Block: 
+		This block helps in handling the risky side of 
+		the code, this block contians the normal code with catch following it.
+
+	-Catch Block:
+		This block helps in handling the exception code of our programm, it contains of the alternative code which helps in running the program smoothely. 
+
+	Syntax:
+
+		try {
+			//normal program
+		}
+		Catch(ExceptionName reference_variable) {
+		//alternate code helps in running program smoothly if 
+		//exception raises.
+		}
+
+
+Ex: Without Try-Catch.
+	
+	class error_try_catch {
+			public static void main(String[] args) {
+				System.out.println("Hello");
+				System.out.println("Hello");
+				System.out.println(10/0);
+				System.out.println("Hello");
+				System.out.println("Hello");
+			}
+	}
+
+O/P:
+ Exception in Thread "main" :java.lang.ArithmeticException: /by zero.
+---------------------------	 -----------------------------  --------
+	Handled by JVM				Type of exception 		discriptiopn				
+class error_try_catch {
+		public static void main(String[] args) {
+			System.out.println("Hello");
+			System.out.println("hello");
+			try {
+				System.out.println(10/0);
+			}
+			catch (ArithmeticException e) {
+				System.out.println("We have an exception:"+e);
+			}
+			System.out.println("Hello");
+		}
+}
+
+

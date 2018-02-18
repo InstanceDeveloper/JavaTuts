@@ -1,0 +1,20 @@
+String:
+	A group of Characters or Character Array.
+
+						
+						String Vs String Buffer
+						-----------------------
+
+-String is a final class			String is a also a final class 
+ in java.lang package				in java.lang package
+
+-
+String s1 = "Srikanth"; 			StringBuffer s3= new 
+String s2 = new String("Sri");		        StringBuffer("Srikanth");
+
+Two apporaches to 					Only one approach to creating 
+create String object				String Buffer Object.
+
+-
+String is immutable 				String Buffer is mutable
+(modifications not allowed)			(modifications allowed)
