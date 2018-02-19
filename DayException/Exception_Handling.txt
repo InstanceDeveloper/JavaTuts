@@ -63,8 +63,8 @@ Ex: Without Try-Catch.
 
 O/P:
  Exception in Thread "main" :java.lang.ArithmeticException: /by zero.
----------------------------	 -----------------------------  --------
-	Handled by JVM				Type of exception 		discriptiopn				
+-------------------------    -----------------------------  --------
+	Handled by JVM		Type of exception 	    discription				
 class error_try_catch {
 		public static void main(String[] args) {
 			System.out.println("Hello");
